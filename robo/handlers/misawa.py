@@ -26,16 +26,6 @@ class Client(object):
         pass
 
     def generate(self, query=None):
-        """Generate lgtm uri.
-
-        :param query: Search query
-        """
-        url = self.search_resource(query)
-        if url is None:
-            return ''
-        return url
-
-    def search_resource(self, query=None):
         """Search image resource using endpoint.
 
         :param query:
