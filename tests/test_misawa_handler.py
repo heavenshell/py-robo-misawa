@@ -53,7 +53,7 @@ class TestClient(TestCase):
         """ Client().generate('query') should generate search by keyword. """
         dummy_response(m, './fixture.json')
 
-        ret = self.client.generate('\u30C9\u30E9\u30E0')
+        ret = self.client.generate(u'\u30C9\u30E9\u30E0')
         self.assertRaisesRegexp(r'^http://+', ret)
 
     @patch('robo.handlers.misawa.requests.get')
