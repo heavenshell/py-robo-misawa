@@ -1,5 +1,7 @@
 robo.handlers.misawa
 ====================
+.. image:: https://travis-ci.org/heavenshell/py-robo-misawa.svg
+    :target: https://travis-ci.org/heavenshell/py-robo-misawa
 
 Generate Jigokuno misawa image matching with the keyword.
 
