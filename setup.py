@@ -46,6 +46,6 @@ setup(
         'Topic :: Communications :: Chat',
         'Topic :: Communications :: Conferencing'
     ],
-    tests_require=['robo', 'requests', 'simplejson'],
+    tests_require=['robo', 'requests', 'simplejson', 'mock'],
     test_suite='tests'
 )
