@@ -20,7 +20,7 @@ from robo.decorators import cmd
 
 class Client(object):
     #: Add LGTM word to animation gif.
-    DEFAULT_ENDPOINT = 'http://horesase-boys.herokuapp.com/meigens.json'
+    DEFAULT_ENDPOINT = 'http://horesase.github.io/horesase-boys/meigens.json'
 
     def __init__(self):
         pass
