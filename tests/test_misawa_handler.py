@@ -54,7 +54,7 @@ class TestClient(TestCase):
         dummy_response(m, './fixture.json')
 
         ret = self.client.generate(u'\u30C9\u30E9\u30E0')
-        self.assertRaisesRegexp(r'^http://+', ret)
+        self.assertTrue(ret.startswith('http://'))
 
     @patch('robo.handlers.misawa.requests.get')
     def test_generate_url_query_is_none(self, m):
@@ -62,7 +62,7 @@ class TestClient(TestCase):
         dummy_response(m, './fixture.json')
 
         ret = self.client.generate()
-        self.assertRaisesRegexp(r'^http://+', ret)
+        self.assertTrue(ret.startswith('http://'))
 
 
 class TestMisawaHandler(TestCase):
@@ -81,10 +81,10 @@ class TestMisawaHandler(TestCase):
         cls.robot.adapters['null'] = adapter
 
     @patch('robo.handlers.misawa.requests.get')
-    def test_should_lgtm(self, m):
+    def test_should_misawa(self, m):
         """ Misawa().get() should search misawa url. """
         dummy_response(m, 'fixture.json')
         self.robot.handler_signal.send('test misawa')
-        self.assertRegexpMatches(self.robot.adapters['null'].responses[0],
-                                 r'^http://*')
+        response = self.robot.adapters['null'].responses[0]
+        self.assertTrue(response.startswith('http://'))
         self.robot.adapters['null'].responses = []
